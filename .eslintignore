@@ -1,0 +1,11 @@
+/next
+/node_modules
+
+.gitignore
+component.json
+next.config.mjs
+package.json
+package-lock.json
+postcss.config.mjs
+tailwind.config.ts
+tsconfig.json
