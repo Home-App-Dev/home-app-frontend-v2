@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Jost } from 'next/font/google';
 import './globals.css';
+import Sidebar from '@/components/Sidebar';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
-const inter = Inter({ subsets: ['latin'] });
+const jost = Jost({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Home App V2',
@@ -15,8 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <UserProvider>
+      <html lang="en">
+        <body className={jost.className}>
+          <div className='flex bg-[#F5F5F5]'>
+            <Sidebar />
+            {children}
+          </div>
+        </body>
+      </html>
+    </UserProvider> 
   );
 }
